@@ -38,20 +38,26 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    /* Gradient colors */
+    --gradient-blue: 200 100% 80%;
+    --gradient-purple: 280 100% 80%;
+    --gradient-pink: 320 100% 80%;
+    
+    /* Button gradients */
+    --button-gradient-start: 200 100% 70%;
+    --button-gradient-end: 320 100% 70%;
+    
+    /* Text colors */
+    --text-gradient-blue: 200 100% 60%;
+    --text-gradient-pink: 320 100% 60%;
+    
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 

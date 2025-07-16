@@ -63,6 +63,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			backgroundImage: {
+				'gradient-main': 'linear-gradient(135deg, hsl(var(--gradient-blue)), hsl(var(--gradient-purple)), hsl(var(--gradient-pink)))',
+				'gradient-button': 'linear-gradient(135deg, hsl(var(--button-gradient-start)), hsl(var(--button-gradient-end)))',
+				'gradient-text': 'linear-gradient(135deg, hsl(var(--text-gradient-blue)), hsl(var(--text-gradient-pink)))',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
