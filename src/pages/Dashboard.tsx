@@ -5,6 +5,7 @@ import { Plus, Eye } from "lucide-react";
 
 const Dashboard = () => {
   const [username, setUsername] = useState("");
+  const [taskCount, setTaskCount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,6 +15,22 @@ const Dashboard = () => {
     } else {
       setUsername(savedUsername);
     }
+    
+    // Load task count
+    const updateTaskCount = () => {
+      const savedTasks = localStorage.getItem("tasks");
+      if (savedTasks) {
+        setTaskCount(JSON.parse(savedTasks).length);
+      }
+    };
+    
+    updateTaskCount();
+    
+    // Update task count when window regains focus
+    const handleFocus = () => updateTaskCount();
+    window.addEventListener("focus", handleFocus);
+    
+    return () => window.removeEventListener("focus", handleFocus);
   }, [navigate]);
 
   const handleAddTask = () => {
@@ -21,8 +38,7 @@ const Dashboard = () => {
   };
 
   const handleViewTasks = () => {
-    // Navigate to tasks view (not implemented in the provided images)
-    console.log("View tasks clicked");
+    navigate("/view-tasks");
   };
 
   return (
@@ -68,9 +84,9 @@ const Dashboard = () => {
           <h4 className="text-sm font-medium text-gray-400 uppercase tracking-wide">
             TOTAL TASKS
           </h4>
-          <div className="mt-2 h-16 bg-gray-50 rounded-lg flex items-center justify-center">
-            <span className="text-2xl font-bold text-gray-600">0</span>
-          </div>
+           <div className="mt-2 h-16 bg-gray-50 rounded-lg flex items-center justify-center">
+             <span className="text-2xl font-bold text-gray-600">{taskCount}</span>
+           </div>
         </div>
       </div>
     </div>

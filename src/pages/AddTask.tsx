@@ -17,8 +17,19 @@ const AddTask = () => {
   const handleAddTask = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
-      // Here you would typically save the task to a database or local storage
-      console.log("Task added:", { title, description });
+      const newTask = {
+        id: Date.now().toString(),
+        title: title.trim(),
+        description: description.trim(),
+        completed: false,
+        createdAt: new Date().toISOString()
+      };
+      
+      const existingTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+      const updatedTasks = [...existingTasks, newTask];
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+      
+      console.log("Task added:", newTask);
       navigate("/dashboard");
     }
   };
