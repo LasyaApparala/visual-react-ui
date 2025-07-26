@@ -28,6 +28,11 @@ app.get('/api/health', (req, res) => {
   res.json({ message: 'Server is running!', timestamp: new Date().toISOString() });
 });
 
+// Optional: Root route
+app.get('/', (req, res) => {
+  res.send('Backend server is up and running!');
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err.stack);
